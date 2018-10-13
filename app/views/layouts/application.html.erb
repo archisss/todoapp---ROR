@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Apptodo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<body>
+<ul>
+    <% if user_signed_in? %>
+    <li>
+        <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+    </li>
+    <% else %>
+    <li>
+        <%= link_to 'Iniciar', new_user_session_path %>
+    </li>
+    <li>
+        <%= link_to 'Registrarse', new_user_registration_path %>
+    </li>
+    <% end %>
+</ul>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+
+  </body>
+</html>

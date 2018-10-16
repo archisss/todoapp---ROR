@@ -1,0 +1,17 @@
+body {
+    font-size: medium;
+}
+tr{
+    border-bottom: solid;
+    border-width: 3px;    
+}
+td,th{
+    text-align: left;
+}
+th {
+    //background-color: black;
+    color: black;
+}
+table,tr,td,th,tbody,thead,tfoot{
+    page-break-inside: avoid !important;
+}

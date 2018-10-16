@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+    <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>User To-Do </h1>
+    <h3>Login as <%= current_user.email %></h3>
+    <table>
+    <thead>
+        <tr>
+            <th style="width: 200px;">Description</th>
+            <th style="width: 200px;">made by </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @todos.each do | todo |%> 
+        <tr>
+            <td><%= todo.description %></th>
+            <td><%= todo.id %></th>
+        </tr>
+        <% end %>
+    </tbody>
+
+    </table>
+    <p>created <%= Date.today %> </p>
+</body>
+</html>

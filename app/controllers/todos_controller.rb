@@ -10,6 +10,7 @@ class TodosController < ApplicationController
     respond_to do |format|
       format.html
       format.csv {send_data @todos.to_csv, filename: "csv-#{Date.today}.csv" }
+      format.pdf { render template: 'todos/todos', pdf: 'pdf'}
     end 
   end
 
@@ -31,6 +32,7 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
+    @todo.owner = current_user.id
 
     respond_to do |format|
       if @todo.save
@@ -47,6 +49,7 @@ class TodosController < ApplicationController
   # PATCH/PUT /todos/1.json
   def update
     respond_to do |format|
+      todo_params["owner"] = current_user
       if @todo.update(todo_params)
         format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo }
@@ -76,5 +79,6 @@ class TodosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
       params.require(:todo).permit(:description, :owner)
+      #binding.pry
     end
 end

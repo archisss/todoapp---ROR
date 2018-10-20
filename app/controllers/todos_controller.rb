@@ -5,7 +5,9 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = Todo.where(user_id: current_user.id)
+    #@todos = Todo.all
+    #@todos = Todo.find(:all, :conditions => { :user_id => current_user.id })
 
     respond_to do |format|
       format.html
@@ -32,7 +34,7 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-    @todo.owner = current_user.id
+    @todo.user_id = current_user.id
 
     respond_to do |format|
       if @todo.save
@@ -42,6 +44,8 @@ class TodosController < ApplicationController
         format.html { render :new }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
+      #se puede enviar un email despues de crear un TODO
+      #TodoMailer.weekly_report(@todo).delivery_now
     end
   end
 
@@ -78,7 +82,7 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:description, :owner)
+      params.require(:todo).permit(:description, :owner, :user_id, :avatar, :nombre)
       #binding.pry
     end
 end

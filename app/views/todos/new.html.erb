@@ -1,6 +1,7 @@
-<h1>New Todo</h1>
-
+<h1>New ToDo</h1>
+<h3>Here: You can add new Task to your own list</h3>
 <%= current_user.id %>
+
 <%= render 'form', todo: @todo %>
 
 <%= link_to 'Back', todos_path %>

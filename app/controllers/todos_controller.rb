@@ -41,7 +41,6 @@ class TodosController < ApplicationController
         format.html { render :new }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
-      #se puede enviar un email despues de crear un TODO
       #TodoMailer.weekly_report(@todo).delivery_now
     end
   end

@@ -1,5 +1,5 @@
+# frozen_string_literal: true
 require 'test_helper'
-
 class WelcomeMailerTest < ActionMailer::TestCase
   test 'notify' do
     mail = WelcomeMailer.notify
@@ -8,5 +8,4 @@ class WelcomeMailerTest < ActionMailer::TestCase
     assert_equal ['from@example.com'], mail.from
     assert_match 'Hi', mail.body.encoded
   end
-
 end

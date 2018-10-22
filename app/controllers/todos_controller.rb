@@ -41,7 +41,7 @@ class TodosController < ApplicationController
         format.html { render :new }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
-      #TodoMailer.weekly_report(@todo).delivery_now
+      # TodoMailer.weekly_report(@todo).delivery_now
     end
   end
 

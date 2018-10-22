@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class WelcomeMailer < ApplicationMailer
   def notify(todo)
     @todo = todo

@@ -6,9 +6,6 @@ class TodosController < ApplicationController
   # GET /todos.json
   def index
     @todos = Todo.where(user_id: current_user.id)
-    #@todos = Todo.all
-    #@todos = Todo.find(:all, :conditions => { :user_id => current_user.id })
-
     respond_to do |format|
       format.html
       format.csv {send_data @todos.to_csv, filename: "csv-#{Date.today}.csv" }

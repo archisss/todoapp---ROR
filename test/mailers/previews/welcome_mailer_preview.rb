@@ -5,5 +5,4 @@ class WelcomeMailerPreview < ActionMailer::Preview
   def notify
     WelcomeMailer.notify Todo.new(description: 'pendient task from ToDo')
   end
-
 end

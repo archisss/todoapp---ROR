@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class FirstWorker
   include Sidekiq::Worker
   def perform(*args)

@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<div id="user_space">
+  <p>
+  Login with email: <%= current_user.email %>
+  <%= current_user.id %>
+  </p>
+ 
+</div>
+
 <h1>Todos</h1>
+
+<p><%= link_to("Generate Report CSV", todos_path(format: "csv")) %></p>
+<p><%= link_to("Generate Report PDF", todos_path(format: "pdf")) %></p>
 
 <table>
   <thead>

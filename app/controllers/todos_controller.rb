@@ -32,8 +32,6 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     @todo.user_id = current_user.id
-    # binding.pry
-
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
@@ -80,6 +78,5 @@ class TodosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
       params.require(:todo).permit(:description, :owner, :user_id, :avatar, :nombre, :estate)
-      #binding.pry
     end
 end

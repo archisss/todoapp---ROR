@@ -5,9 +5,8 @@ class TodoMailer < ApplicationMailer
   #
   #   en.todo_mailer.weekly_report.subject
   #
-  def weekly_report(todo)
-    @todo = todo
-    @user = @todo.user
+  def weekly_report(user)
+    @user = user
     mail to: @user.email, subjet: 'Your weekly ToDos'
   end
 end

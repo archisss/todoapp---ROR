@@ -2,8 +2,11 @@
 
 class FirstWorker
   include Sidekiq::Worker
-  def perform(*args)
-    puts 'I am backgroud worker i tried to send and email new'
-    TodoMailer.weekly_report(todo)
+  def perform(*)
+    @user = User.all
+    @user.each do |u|
+    mail = TodoMailer.weekly_report(user)
+    mail.deliver_now
+    puts 'Sending email by SKIDEQ'
   end
 end

@@ -7,6 +7,5 @@ class FirstWorker
     @user.each do |u|
     mail = TodoMailer.weekly_report(user)
     mail.deliver_now
-    puts 'Sending email by SKIDEQ'
   end
 end

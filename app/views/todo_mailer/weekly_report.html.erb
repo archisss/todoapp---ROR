@@ -10,13 +10,13 @@
 <th>Status</th>
 </tr>
 <% @user.todos.each do |todo| %>
-<tr>
-  <td>
-  <%= todo.description %>
-  </td>
-  <td>
-  <%= todo.estate?  ? "In process" : "Finish" %>
-  </td>
-</tr>
+  <tr>
+    <td>
+    <%= todo.description %>
+    </td>
+    <td>
+    <%= todo.estate?  ? "In process" : "Finish" %>
+    </td>
+  </tr>
 <% end %>
 </table>

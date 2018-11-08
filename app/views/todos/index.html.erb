@@ -23,7 +23,7 @@
       <tr>
         <td><%= todo.description %></td>
         <td><%= todo.user_id %></td>
-        <td><%= todo.estate?  ? "In process" : "Finish" %></td>  
+        <td><%= todo.status?  ? "In process" : "Finish" %></td>  
         <td><%= link_to 'Show', todo %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
         <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>

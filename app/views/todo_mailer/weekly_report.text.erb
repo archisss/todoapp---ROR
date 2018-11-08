@@ -6,5 +6,5 @@ Listado de ToDos
 
 <% @user.todos.each do |todo| %>
 
-<%= "#{todo.description} - #{todo.estate?  ? "In process" : "Finish"}" %>
+<%= "#{todo.description} - #{todo.status?  ? "In process" : "Finish"}" %>
 <% end %>

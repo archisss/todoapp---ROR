@@ -12,7 +12,7 @@
 
 <p>
   <strong>Status:</strong>
-  <%= @todo.estate? ? "In process" : "Finish"  %>
+  <%= @todo.status? ? "In process" : "Finish"  %>
 </p>
 
 <%= link_to 'Edit', edit_todo_path(@todo) %> |

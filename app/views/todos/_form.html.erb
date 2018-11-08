@@ -22,10 +22,10 @@
   </div>
 
   
-  <% unless @todo.estate !=true %>
+  <% unless @todo.status ==true %>
     <div class="field">
-      <%= form.label :estate %>
-      <%= @todo.estate? ? "In process" : "Finish" %>
+      <%= form.label :status %>
+      <%= @todo.status? ? "In process" : "Finish" %>
   <% else %>
       <%= form.check_box :estate, checked:true  %> this ToDo task is in process 
     </div>

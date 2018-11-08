@@ -2,10 +2,14 @@
 
 class FirstWorker
   include Sidekiq::Worker
-  def perform(*)
-    @user = User.all
-    @user.each do |u|
-    mail = TodoMailer.weekly_report(user)
-    mail.deliver_now
+  #def perform(user) #antes *
+    #@user = User.all
+    #@user.each do |u|
+    #mail = TodoMailer.weekly_report(u)
+    #mail.deliver_now
+  #end
+
+  def test(name, age)
+    #puts "hola #{name} tienes #{age}"
   end
 end

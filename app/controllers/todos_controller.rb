@@ -11,6 +11,7 @@ class TodosController < ApplicationController
       format.csv {send_data @todos.to_csv, filename: "csv-#{Date.today}.csv" }
       format.pdf { render template: 'todos/todos', pdf: 'pdf'}
     end 
+    #FirstWorker.test('archie',31)
   end
 
   # GET /todos/1
@@ -75,6 +76,6 @@ class TodosController < ApplicationController
     end
 
     def todo_params
-      params.require(:todo).permit(:description, :owner, :user_id, :avatar, :nombre, :estate)
+      params.require(:todo).permit(:description, :owner, :user_id, :avatar, :nombre, :status)
     end
 end

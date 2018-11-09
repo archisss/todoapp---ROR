@@ -20,6 +20,8 @@ module Apptodo
     #comando para poder utilizar el mailer
     #config.action_mailer.default_url_options = { host: 'example.com'}
 
+    config.active_job.queue_adapter = Rails.env.production? ? :sidekiq : :async
+
     config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
 
     config.before_configuration do

@@ -1,0 +1,4 @@
+generate_week_email:
+    cron: '* * * * *'
+    class: 'GenerateWeekEmailJob'
+    queue: default

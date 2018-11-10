@@ -5,15 +5,17 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
+   
+
     @todos = Todo.where(user_id: current_user.id)
     respond_to do |format|
       format.html
       format.csv {send_data @todos.to_csv, filename: "csv-#{Date.today}.csv" }
       format.pdf { render template: 'todos/todos', pdf: 'pdf'}
     end 
-    #FirstWorker.perform_async('archie',31)
-    #render text: "Request sidekiq perform"
     GenerateWeekEmailJob.perform_later
+    FirstWorker.perform_async
+    render text: "Request sidekiq perform"
   end
 
    

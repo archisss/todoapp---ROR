@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GenerateWeekEmailJob < ApplicationJob
   queue_as :default
 

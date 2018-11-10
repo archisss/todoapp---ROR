@@ -27,7 +27,7 @@
       <%= form.label :status %>
       <%= @todo.status? ? "In process" : "Finish" %>
   <% else %>
-      <%= form.check_box :estate, checked:true  %> this ToDo task is in process 
+      <%= form.check_box :status, checked:true  %> this ToDo task is in process 
     </div>
   <% end %>
 

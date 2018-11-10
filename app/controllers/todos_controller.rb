@@ -5,8 +5,6 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-   
-
     @todos = Todo.where(user_id: current_user.id)
     respond_to do |format|
       format.html

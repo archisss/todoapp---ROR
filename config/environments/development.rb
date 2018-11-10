@@ -39,8 +39,8 @@ Rails.application.configure do
   #configuración SMTP para gmail
   config. action_mailer.delivery_method = :smtp
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true #modifcado para el mailer 
-  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  config.action_mailer.raise_delivery_errors = true # modifcado para el mailer 
+  config.action_mailer.default_options = { from: 'no-reply@example.com' }
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
@@ -50,7 +50,6 @@ Rails.application.configure do
     user_name: ENV["GMAIL_USERNAME"],
     password: ENV["GMAIL_PASSWORD"]
   }
-  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

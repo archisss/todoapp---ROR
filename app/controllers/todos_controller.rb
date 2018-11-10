@@ -15,9 +15,7 @@ class TodosController < ApplicationController
     FirstWorker.perform_async
     render text: "Request sidekiq perform"
   end
-
-   
-
+  
   # GET /todos/1
   # GET /todos/1.json
   def show

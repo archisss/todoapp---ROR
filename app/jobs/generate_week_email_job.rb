@@ -9,6 +9,5 @@ class GenerateWeekEmailJob < ApplicationJob
       mail = TodoMailer.weekly_report(u)
       mail.deliver_now!
     end
-    puts 'SIDEKIQ SENDER FROM GENERATEWEEKEMAIL JOB'
   end
 end

@@ -11,9 +11,6 @@ class TodosController < ApplicationController
       format.csv {send_data @todos.to_csv, filename: "csv-#{Date.today}.csv" }
       format.pdf { render template: 'todos/todos', pdf: 'pdf'}
     end 
-    GenerateWeekEmailJob.perform_later
-    FirstWorker.perform_async
-    render text: "Request sidekiq perform"
   end
   
   # GET /todos/1

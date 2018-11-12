@@ -1,12 +1,22 @@
-<h1>Hi, <%= @user.email %></h1>
+<h1>Hi, <%= @user.nombre %></h1>
 
 <p>
   Yout weekly report from ToDo App 
 </p>
-
 <h3>Your ToDo's</h3>
-<%# @todo.each do |todo|%>
-<ul>
-<%= @todo.description %>
-</ul>
-<% #end %>
+<table>
+<tr>
+<th>Description</th>
+<th>Status</th>
+</tr>
+<% @user.todos.each do |todo| %>
+  <tr>
+    <td>
+    <%= todo.description %>
+    </td>
+    <td>
+    <%= todo.status?  ? "In process" : "Finish" %>
+    </td>
+  </tr>
+<% end %>
+</table>

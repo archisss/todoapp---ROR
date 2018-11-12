@@ -12,7 +12,7 @@ class TodosController < ApplicationController
       format.pdf { render template: 'todos/todos', pdf: 'pdf'}
     end 
   end
-
+  
   # GET /todos/1
   # GET /todos/1.json
   def show
@@ -32,7 +32,6 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     @todo.user_id = current_user.id
-
     respond_to do |format|
       if @todo.save
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
@@ -71,14 +70,11 @@ class TodosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_todo
       @todo = Todo.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:description, :owner, :user_id, :avatar, :nombre)
-      #binding.pry
+      params.require(:todo).permit(:description, :owner, :user_id, :avatar, :nombre, :status)
     end
 end

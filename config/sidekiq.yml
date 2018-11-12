@@ -4,6 +4,6 @@
 :queues:
  - default
 :schedule:
-  first:
-    cron: '0 * * * * *'   # Runs once per minute
-    class: ‘FirstWorker’
+  first_worker:
+    cron: '* * * * * *'   # Runs once per minute
+    class: 'FirstWorker'

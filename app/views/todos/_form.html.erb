@@ -21,6 +21,16 @@
     <% form.text_field current_user.id %>
   </div>
 
+  
+  <% unless @todo.status ==true %>
+    <div class="field">
+      <%= form.label :status %>
+      <%= @todo.status? ? "In process" : "Finish" %>
+  <% else %>
+      <%= form.check_box :status, checked:true  %> this ToDo task is in process 
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

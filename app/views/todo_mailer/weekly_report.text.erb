@@ -1,9 +1,10 @@
-Hi, <%= @user.email %> 
+Hi, <%= @user.nombre %> 
 
 Yout Weekly Report from ToDo App 
 
 Listado de ToDos
 
-<%= @todo.description %>
+<% @user.todos.each do |todo| %>
 
-
+<%= "#{todo.description} - #{todo.status?  ? "In process" : "Finish"}" %>
+<% end %>
